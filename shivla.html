@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHIVLA — London Hairdressing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0a0a0a;
+      --off-black: #111111;
+      --charcoal: #1c1c1c;
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --gold-pale: #f5e6c0;
+      --white: #ffffff;
+      --off-white: #faf9f7;
+      --mid: #888888;
+      --font-display: 'Cormorant Garamond', serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 6%;
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--gold); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 1px;
+      background: var(--white);
+      transition: all 0.3s;
+    }
+
+    /* ===== HERO ===== */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      padding: 0 6% 8rem;
+      position: relative;
+      overflow: hidden;
+      background: var(--off-black);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: 
+        linear-gradient(to bottom, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.7) 60%, rgba(10,10,10,0.95) 100%),
+        radial-gradient(ellipse at 70% 40%, rgba(201,168,76,0.08) 0%, transparent 60%);
+    }
+
+    /* Gold scissors decorative element */
+    .hero-deco {
+      position: absolute;
+      top: 12%;
+      right: 8%;
+      font-size: 5rem;
+      color: rgba(201,168,76,0.08);
+      transform: rotate(-30deg);
+      pointer-events: none;
+      font-style: normal;
+    }
+
+    /* Thin gold vertical line - the signature element */
+    .hero-line {
+      position: absolute;
+      left: 6%;
+      top: 15%;
+      bottom: 15%;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+      opacity: 0.4;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 30px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .hero-name {
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 10vw, 8rem);
+      font-weight: 300;
+      line-height: 0.9;
+      letter-spacing: 0.08em;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-name em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .hero-sub {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--black);
+      padding: 0.9rem 2.5rem;
+      text-decoration: none;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+
+    .btn-gold:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      padding: 0.9rem 2.5rem;
+      text-decoration: none;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.3);
+      transition: all 0.2s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* ===== SECTIONS ===== */
+    .section-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .section-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 1.25rem;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .section-divider {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      margin: 1.5rem 0;
+      opacity: 0.6;
+    }
+
+    /* ===== ABOUT ===== */
+    #about {
+      padding: 8rem 6%;
+      background: var(--off-black);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .about-image-frame {
+      position: relative;
+    }
+
+    .about-image-placeholder {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: var(--charcoal);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      color: rgba(255,255,255,0.2);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid rgba(201,168,76,0.1);
+    }
+
+    .about-image-placeholder i { font-size: 2.5rem; color: rgba(201,168,76,0.2); }
+
+    /* Gold corner accents */
+    .about-image-frame::before,
+    .about-image-frame::after {
+      content: '';
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border-color: var(--gold);
+      border-style: solid;
+      opacity: 0.5;
+    }
+
+    .about-image-frame::before {
+      top: -12px;
+      left: -12px;
+      border-width: 1px 0 0 1px;
+    }
+
+    .about-image-frame::after {
+      bottom: -12px;
+      right: -12px;
+      border-width: 0 1px 1px 0;
+    }
+
+    .about-text p {
+      color: rgba(255,255,255,0.6);
+      line-height: 1.9;
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
+      font-weight: 300;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ===== SERVICES ===== */
+    #services {
+      padding: 8rem 6%;
+      background: var(--black);
+    }
+
+    .services-header {
+      max-width: 1200px;
+      margin: 0 auto 4rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(201,168,76,0.1);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .service-card {
+      background: var(--black);
+      padding: 2.5rem 2rem;
+      transition: background 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+
+    .service-card:hover { background: var(--charcoal); }
+    .service-card:hover::after { transform: scaleX(1); }
+
+    .service-icon {
+      font-size: 1.5rem;
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+
+    .service-name {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+
+    .service-desc {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* ===== WORK / GALLERY ===== */
+    #work {
+      padding: 8rem 6%;
+      background: var(--off-black);
+    }
+
+    .work-header {
+      max-width: 1200px;
+      margin: 0 auto 3rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      gap: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gallery-item {
+      background: var(--charcoal);
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(201,168,76,0.08);
+    }
+
+    .gallery-item:first-child {
+      grid-column: 1 / 3;
+      grid-row: 1 / 3;
+    }
+
+    .gallery-placeholder {
+      width: 100%;
+      height: 100%;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      color: rgba(255,255,255,0.15);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .gallery-item:first-child .gallery-placeholder { min-height: 460px; }
+    .gallery-placeholder i { font-size: 2rem; color: rgba(201,168,76,0.15); }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(10,10,10,0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+    .gallery-overlay span {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--gold-light);
+      letter-spacing: 0.1em;
+    }
+
+    /* ===== CONTACT ===== */
+    #contact {
+      padding: 8rem 6%;
+      background: var(--black);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-group label {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      background: rgba(255,255,255,0.03);
+      border: none;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      padding: 0.85rem 0;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 300;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-bottom-color: var(--gold);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255,255,255,0.2);
+    }
+
+    .form-group select option { background: var(--off-black); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .contact-info { padding-top: 1rem; }
+
+    .contact-info-item {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .contact-info-item:last-child { border-bottom: none; }
+
+    .contact-info-icon {
+      color: var(--gold);
+      font-size: 0.9rem;
+      width: 16px;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .contact-info-text h4 {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-info-text p, .contact-info-text a {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+      font-weight: 300;
+      line-height: 1.6;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-info-text a:hover { color: var(--gold); }
+
+    /* Map placeholder */
+    .map-placeholder {
+      width: 100%;
+      height: 200px;
+      background: var(--charcoal);
+      border: 1px solid rgba(201,168,76,0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.2);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 2rem;
+    }
+
+    .map-placeholder i { font-size: 1.5rem; color: rgba(201,168,76,0.2); }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--off-black);
+      padding: 2.5rem 6%;
+      border-top: 1px solid rgba(201,168,76,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .footer-logo span { color: var(--gold); }
+
+    footer p {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.05em;
+    }
+
+    footer a { color: var(--gold); text-decoration: none; }
+
+    .footer-socials {
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    .footer-socials a {
+      color: rgba(255,255,255,0.4);
+      font-size: 1rem;
+      transition: color 0.2s;
+      text-decoration: none;
+    }
+
+    .footer-socials a:hover { color: var(--gold); }
+
+    /* ===== MOBILE NAV ===== */
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0; right: 0;
+        background: var(--off-black);
+        flex-direction: column;
+        padding: 2rem 6%;
+        gap: 1.5rem;
+        border-bottom: 1px solid rgba(201,168,76,0.15);
+      }
+
+      .nav-links.open { display: flex; }
+
+      .about-grid,
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+
+      .services-grid { grid-template-columns: 1fr; }
+
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-item:first-child { grid-column: 1 / 3; grid-row: auto; }
+
+      .about-stats { grid-template-columns: repeat(3, 1fr); }
+
+      .form-row { grid-template-columns: 1fr; gap: 1.25rem; }
+
+      #hero { padding-bottom: 5rem; }
+    }
+
+    /* ===== FADE IN ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="#hero" class="nav-logo">SHIVL<span>A</span></a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#contact">Book</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-line"></div>
+    <div class="hero-deco">✂</div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">London Hairdressing</p>
+      <h1 class="hero-name">SHIVL<em>A</em></h1>
+      <p class="hero-sub">Where every cut tells your story</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn-gold">Book a Session</a>
+        <a href="#work" class="btn-outline">View Work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-grid">
+      <div class="about-image-frame fade-in">
+        <div class="about-image-placeholder">
+          <i class="fas fa-user"></i>
+          Your photo here
+        </div>
+      </div>
+      <div class="about-text fade-in">
+        <p class="section-eyebrow">About</p>
+        <h2 class="section-title">Hair is more than<br><em>a style.</em> It's identity.</h2>
+        <div class="section-divider"></div>
+        <p>Hi, I'm Shivla — a London-based hairdresser with a passion for making every client feel like the best version of themselves. My approach is personal, precise and always tailored to you.</p>
+        <p>Whether you're after a bold transformation or a refined trim, I take the time to understand your hair, your lifestyle and your vision before a single pair of scissors comes out.</p>
+        <p>Based in London and available for in-salon and mobile appointments. Let's create something beautiful together.</p>
+        <div class="about-stats">
+          <div class="stat">
+            <div class="stat-number">8+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Happy Clients</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Bespoke</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="services-header fade-in">
+      <p class="section-eyebrow">What I offer</p>
+      <h2 class="section-title">Services</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <span class="service-icon">✂️</span>
+        <h3 class="service-name">Cut & Style</h3>
+        <p class="service-desc">Precision cuts tailored to your face shape, hair texture and personal style. From classic to contemporary.</p>
+      </div>
+      <div class="service-card fade-in">
+        <span class="service-icon">🎨</span>
+        <h3 class="service-name">Colour & Highlights</h3>
+        <p class="service-desc">Full colour, balayage, highlights and toning. Bespoke colour consultation included with every appointment.</p>
+      </div>
+      <div class="service-card fade-in">
+        <span class="service-icon">💆</span>
+        <h3 class="service-name">Treatment & Care</h3>
+        <p class="service-desc">Deep conditioning, keratin treatments and scalp care to restore health, shine and strength to your hair.</p>
+      </div>
+      <div class="service-card fade-in">
+        <span class="service-icon">👰</span>
+        <h3 class="service-name">Bridal & Special Occasions</h3>
+        <p class="service-desc">Upstyles, braids and occasion hair for weddings, events and celebrations. Trial sessions available.</p>
+      </div>
+      <div class="service-card fade-in">
+        <span class="service-icon">🏠</span>
+        <h3 class="service-name">Mobile Appointments</h3>
+        <p class="service-desc">Can't come to me? I come to you. Mobile appointments available across London — contact me for availability.</p>
+      </div>
+      <div class="service-card fade-in">
+        <span class="service-icon">🔄</span>
+        <h3 class="service-name">Relaxer & Texturising</h3>
+        <p class="service-desc">Safe, professional relaxer and texturising services with a full hair health consultation before every treatment.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="work-header fade-in">
+      <p class="section-eyebrow">Portfolio</p>
+      <h2 class="section-title">Recent <em>Work</em></h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item fade-in">
+        <div class="gallery-placeholder">
+          <i class="fas fa-image"></i>
+          Featured work
+        </div>
+        <div class="gallery-overlay"><span>Colour & Cut</span></div>
+      </div>
+      <div class="gallery-item fade-in">
+        <div class="gallery-placeholder">
+          <i class="fas fa-image"></i>
+          Your work here
+        </div>
+        <div class="gallery-overlay"><span>Balayage</span></div>
+      </div>
+      <div class="gallery-item fade-in">
+        <div class="gallery-placeholder">
+          <i class="fas fa-image"></i>
+          Your work here
+        </div>
+        <div class="gallery-overlay"><span>Bridal Style</span></div>
+      </div>
+      <div class="gallery-item fade-in">
+        <div class="gallery-placeholder">
+          <i class="fas fa-image"></i>
+          Your work here
+        </div>
+        <div class="gallery-overlay"><span>Natural Texture</span></div>
+      </div>
+      <div class="gallery-item fade-in">
+        <div class="gallery-placeholder">
+          <i class="fas fa-image"></i>
+          Your work here
+        </div>
+        <div class="gallery-overlay"><span>Highlights</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-grid">
+      <div class="fade-in">
+        <p class="section-eyebrow">Get in touch</p>
+        <h2 class="section-title">Book your<br><em>appointment</em></h2>
+        <div class="section-divider"></div>
+        <form class="contact-form" action="https://formspree.io/f/yourformid" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" name="first_name" placeholder="Your first name" required>
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" name="last_name" placeholder="Your last name" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" name="email" placeholder="your@email.com" required>
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" name="phone" placeholder="07700 000 000">
+          </div>
+          <div class="form-group">
+            <label>Service Required</label>
+            <select name="service" required>
+              <option value="">Select a service</option>
+              <option value="cut-style">Cut & Style</option>
+              <option value="colour">Colour & Highlights</option>
+              <option value="treatment">Treatment & Care</option>
+              <option value="bridal">Bridal & Special Occasions</option>
+              <option value="mobile">Mobile Appointment</option>
+              <option value="relaxer">Relaxer & Texturising</option>
+              <option value="other">Other — I'll explain below</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea name="message" placeholder="Tell me a little about what you're looking for, your hair type and any questions you have..."></textarea>
+          </div>
+          <button type="submit" class="btn-gold" style="border: none; cursor: pointer; font-family: var(--font-body); width: 100%;">
+            Send Enquiry
+          </button>
+        </form>
+      </div>
+
+      <div class="contact-info fade-in">
+        <p class="section-eyebrow">Find me</p>
+        <h2 class="section-title">Let's <em>connect</em></h2>
+        <div class="section-divider"></div>
+
+        <div class="contact-info-item">
+          <i class="fas fa-map-marker-alt contact-info-icon"></i>
+          <div class="contact-info-text">
+            <h4>Location</h4>
+            <p>London, UK<br>Mobile appointments available</p>
+          </div>
+        </div>
+
+        <div class="contact-info-item">
+          <i class="fas fa-envelope contact-info-icon"></i>
+          <div class="contact-info-text">
+            <h4>Email</h4>
+            <a href="mailto:hello@shivla.co.uk">hello@shivla.co.uk</a>
+          </div>
+        </div>
+
+        <div class="contact-info-item">
+          <i class="fas fa-phone contact-info-icon"></i>
+          <div class="contact-info-text">
+            <h4>Phone / WhatsApp</h4>
+            <a href="tel:+447700000000">07700 000 000</a>
+          </div>
+        </div>
+
+        <div class="contact-info-item">
+          <i class="fab fa-instagram contact-info-icon"></i>
+          <div class="contact-info-text">
+            <h4>Instagram</h4>
+            <a href="https://instagram.com/shivla" target="_blank">@shivla</a>
+          </div>
+        </div>
+
+        <div class="contact-info-item">
+          <i class="fas fa-clock contact-info-icon"></i>
+          <div class="contact-info-text">
+            <h4>Availability</h4>
+            <p>Tuesday — Saturday<br>9am — 7pm<br>Sundays by request</p>
+          </div>
+        </div>
+
+        <div class="map-placeholder">
+          <i class="fas fa-map-marked-alt"></i>
+          Embed Google Map here
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="#hero" class="footer-logo">SHIVL<span>A</span></a>
+    <p>© 2026 SHIVLA Hairdressing. All rights reserved. Built by <a href="https://louiseskinner01.github.io/portfolio/" target="_blank">Louise Skinner</a></p>
+    <div class="footer-socials">
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // Fade in on scroll
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    fadeEls.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
