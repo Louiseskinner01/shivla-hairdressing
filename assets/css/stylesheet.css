@@ -3,7 +3,7 @@
 
     :root {
       --black: #0a0a0a;
-      --off-black: #111111;
+      --off-black: #3c2d39;
       --charcoal: #1c1c1c;
       --gold: #c9a84c;
       --gold-light: #e8c97a;
@@ -87,7 +87,7 @@
 
     /* ===== HERO ===== */
     #hero {
-      min-height: 60vh;
+      min-height: 70vh;
       display: flex;
       align-items: flex-end;
       padding: 0 6% 5rem;
@@ -361,7 +361,7 @@
 
     .services-header {
       max-width: 1200px;
-      margin: 0 auto 4rem;
+      margin: 0 auto;
     }
 
     .services-grid {
