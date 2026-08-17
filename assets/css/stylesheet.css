@@ -2,15 +2,15 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --black: #0a0a0a;
-      --off-black: #3c2d39;
-      --charcoal: #1c1c1c;
+      --black: #030303;
+      --off-black: #43313f;
+      --charcoal: #3a2d39;
       --gold: #c9a84c;
       --gold-light: #e8c97a;
       --gold-pale: #f5e6c0;
       --white: #ffffff;
       --off-white: #faf9f7;
-      --mid: #888888;
+      --mid: #050505;
       --font-display: 'Cormorant Garamond', serif;
       --font-body: 'Inter', sans-serif;
     }
@@ -367,7 +367,7 @@
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 5px;
+      gap: 1px;
       background: var(--gold);
       max-width: 1200px;
       margin: 0 auto;
