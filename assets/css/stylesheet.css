@@ -711,6 +711,11 @@
         gap: 3rem; 
       }
 
+      .about-image-frame {
+        
+        padding: 25px;
+      }
+
       .services-grid { 
         grid-template-columns: 1fr; 
       }
