@@ -257,7 +257,7 @@
 
     /* ===== ABOUT ===== */
     #about {
-      padding: 8rem 6%;
+      padding: 4rem 6%;
       background: var(--off-black);
       margin: 0%;
     }
@@ -369,7 +369,7 @@
 
     /* ===== SERVICES ===== */
     #services {
-      padding: 8rem 6%;
+      padding: 6rem 6%;
       background: var(--black);
     }
 
@@ -433,7 +433,7 @@
 
     /* ===== WORK / GALLERY ===== */
     #work {
-      padding: 8rem 6%;
+      padding: 4rem 6%;
       background: var(--off-black);
     }
 
@@ -711,10 +711,6 @@
         gap: 3rem; 
       }
 
-      .about-image-frame {
-        
-        padding: 25px;
-      }
 
       .services-grid { 
         grid-template-columns: 1fr; 
@@ -734,7 +730,7 @@
         gap: 10px;
     }
 
-    .work-imgs {
+      .work-imgs {
         height: 300px;
     }
       
