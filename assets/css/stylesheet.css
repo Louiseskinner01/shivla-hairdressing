@@ -452,7 +452,7 @@
     }
 
     .gallery-item {
-      background: rgb(69, 24, 73);
+      background: var(--charcoal);
       overflow: hidden;
       position: relative;
       border-radius: 5px;
