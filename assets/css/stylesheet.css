@@ -775,22 +775,4 @@
 
     }
 
-    @media (min-width: 1022px) { 
-       .gallery-item {
-        background: var(--charcoal);
-        overflow: hidden;
-        position: relative;
-        border-radius: 5px;
-        padding: 10px 0 10px 10px;
-        width: 380px;
-        height: 350px;
-      }
-  
-      .work-imgs{    
-        width: 360px;
-        height: 330px;
-        border-radius: 5px;
-        padding: 0%;
-      }
-
-    }
+   
