@@ -301,6 +301,13 @@
       border-radius: 6px;
   }
 
+    #bio-img-text{
+      color: rgba(255,255,255,0.6);
+      line-height: 1.9;
+      font-size: 0.95rem;
+      font-weight: 300;
+      margin: 0%;
+    }
 
     /* Gold corner accents */
     .about-image-frame::before,
@@ -433,7 +440,7 @@
 
     /* ===== WORK / GALLERY ===== */
     #work {
-      padding: 4rem 6%;
+      padding: 2rem 6%;
       background: var(--off-black);
     }
 
@@ -732,8 +739,12 @@
 
       .work-imgs {
         height: 300px;
-    }
+     }
       
+     #bio-img-text{
+      margin-bottom: 20px !important;
+      margin-top: 0px;
+     }
 
       .about-stats { 
         grid-template-columns: repeat(3, 1fr); 
@@ -765,7 +776,9 @@
         grid-template-columns: 1fr 1fr;
        
        }
-    
+       #bio-img-text{
+        margin: 0px !important;
+       }
        
     }
 
