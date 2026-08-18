@@ -3,7 +3,7 @@
 
     :root {
       --black: #030303;
-      --off-black: #43313f;
+      --off-black: #493343;
       --charcoal: #3a2d39;
       --gold: #c9a84c;
       --gold-light: #e8c97a;
@@ -443,11 +443,11 @@
     }
 
     .gallery-item {
-      background: var(--charcoal);
+      background: rgb(69, 24, 73);
       overflow: hidden;
       position: relative;
       border-radius: 5px;
-      padding: 10px;
+      padding: 1px;
   }
   
   .work-imgs {
@@ -756,23 +756,7 @@
        
        }
     
-       .gallery-item {
-        background: var(--charcoal);
-        overflow: hidden;
-        position: relative;
-        border-radius: 5px;
-        padding: 10px 0 10px 10px;
-        width: 360px;
-        height: 330px;
-      }
-  
-      .work-imgs{    
-        width: 340px;
-        height: 310px;
-        border-radius: 5px;
-        padding: 0%;
-      }
-
+       
     }
 
    
